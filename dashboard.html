@@ -1,0 +1,206 @@
+{% extends "bootstrap/base.html" %}
+
+{% block title %}
+Dashboard
+{% endblock %}
+
+{% block styles %}
+{{super()}}
+<link rel="stylesheet" href="{{url_for('.static', filename='main.css')}}">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+<script src="{{url_for('static', filename='jQueryA.js')}}"></script>
+
+
+<script src="{{url_for('static', filename='jquery-ui.js')}}"></script>
+
+<link href="{{url_for('static', filename='jquery-ui.css')}}" rel="stylesheet">
+
+<link href="http://code.jquery.com/ui/1.13.0/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cookie&family=Dongle&display=swap" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">DiaCooky</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#"> Search </a></li>
+            <li><a href="#"> Settings </a></li>
+            <li><a href="#"> Profile </a></li>
+            <li><a href="{{ url_for('logout') }}"> Log Out </a></li>
+          </ul>
+          <form class="navbar-form navbar-right">
+            <input type="text" class="form-control" placeholder="Search...">
+          </form>
+        </div>
+      </div>
+    </nav>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only"> Toggle navigation </span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#"> Search </a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#"> App </a></li>
+            <li><a href="#"> Settings </a></li>
+            <li><a href="#"> Profile </a></li>
+            <li><a href="{{ url_for('logout') }}"> Log Out </a></li>
+          </ul>
+          <form class="navbar-form navbar-right">
+            <input type="text" class="form-control" placeholder="Search...">
+          </form>
+        </div>
+      </div>
+    </nav>
+
+
+
+
+<div class="container">
+  <h1 class="page-header">Welcome, {{ name }}</h1>
+    <div class="EmployeeNumber">
+    <p class="box">  
+        <h3> Employee Number: </h3>
+        <input type="text" id="amount" readonly class="goldSliderText" >
+    </p></div>
+        <div id="slider-range"></div>
+
+ 
+ 
+	<div class="Pword">
+	   <p class="box">
+        <h3> Password: </h3>
+        <input type="text" id="pword" readonly class="goldSliderText" >
+       </p>
+	</div>
+
+
+</div>
+   
+
+     
+   <br><br>
+   <div class="searchbtn">
+    <button id="Search"> search.. </button>
+   </div>
+  
+
+
+<script>
+
+var data = { 
+  "data": [
+  {
+            "Id":"140038",
+            "Name":"Sharanya Serasinghe",
+            "Address":"70/7A, Hill Street, Union Garden, Dehiwala",
+            "Birthday":"2001/04/18",
+            "University":"Informatics Institute of Technlogy",
+  },
+
+		{
+            "Id":"140039",
+            "Name":"Gayani Chandraguptha",
+            "Address":"20A, Stanley Thilakarathne Road, Nugegoda",
+            "Birthday":"1999/12/14",
+            "University":"Sri Lanka Institute of Information Technology",
+        },
+
+        {   
+            "Id":"34855",
+            "Name":"Savindi Welikadaarachchi",
+            "Address":"50/2, Negombo Road, Negambo",
+            "Birthday":"1999/07/14",
+            "University":"Sri Lanka Institute of Information Technology",
+        },
+
+        {   
+            "Id":"34852",
+            "Name":"Amali Samarakoon",
+            "Address":"50/2, Negombo Road, Negambo",
+            "Birthday":"1997/09/14",
+            "University":"Sri Jayawardhanapura University",
+        },
+
+        {   
+            "Id":"34853",
+            "Name":"Ishara Liyanage",
+            "Address":"101/2, Welewatta Road, Matara",
+            "Birthday":"1997/02/17",
+            "University":"Sri Jayawardhanapura University",
+        },
+		
+        {   
+            "Id":"34859",
+            "Name":"Maheeza Diltar",
+            "Address":"75/2, Kaduwela Road, Kaduwela",
+            "Birthday":"1998/12/12",
+            "University":"Sri Jayawardhanapura University",
+        },
+		
+        {   
+            "Id":"34859",
+            "Name":"Maheeza Diltar",
+            "Address":"75/2, Kaduwela Road, Kaduwela",
+            "Birthday":"1998/12/12",
+            "University":"Sri Jayawardhanapura University",        
+		},
+		
+        {   
+            "Id":"33955",
+            "Name":"Supuni Illepperuma",
+            "Address":"112/8A, Walawwaththa Road, Matara",
+            "Birthday":"1997/06/19",
+            "University":"Sri Jayawardhanapura University",
+		},
+		
+        {   
+            "Id":"150456",
+            "Name":"Nirosha Perera",
+            "Address":"65/6F, Nuwara Road, Nuwara Eliya",
+            "Birthday":"1998/04/03",
+            "University":"Horizen Campus",        
+		},
+		
+        {   
+            "Id":"150457",
+            "Name":"Imashi Gunasinghe",
+            "Address":"34/3D, Waidya Road, Malabe",
+            "Birthday":"1998/10/07",
+            "University":"Horizen Campus",        
+		},
+		
+        {
+            "Id":"15040",
+            "Name":"Charuka Kavinda",
+            "Address":"99/B, Siriwardhana Road, Kirulapana",
+            "Birthday":"1998/05/23",
+            "University":"ICBT Campus",          
+		},
+		
+        
+]}
+
+</script>
+{% endblock %}

@@ -1,0 +1,398 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Search...</title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+<script src="{{url_for('static', filename='jQueryA.js')}}"></script>
+
+
+<script src="{{url_for('static', filename='jquery-ui.js')}}"></script>
+
+<link href="{{url_for('static', filename='jquery-ui.css')}}" rel="stylesheet">
+
+<link href="http://code.jquery.com/ui/1.13.0/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cookie&family=Dongle&display=swap" rel="stylesheet">
+
+<style>
+    body{
+        background-image: linear-gradient(180deg, #D9AFD9, #97D9E1,#FFFFFF);
+    }
+    img{
+        
+        float: center;
+    }
+    .inline{
+     margin: auto;
+     width: 16%;
+     padding: 10px;
+      
+  }
+  #Placeholder{
+     margin: auto;
+     width: 50%;
+     padding: 10px;
+      
+  }
+  #Placeholder2{
+     margin: auto;
+     width: 50%;
+     padding: 10px;
+      
+  }
+  h3{
+      text-align: center;
+
+  }
+  .btn{
+     margin: auto;
+     width: 28%;
+     padding: 10px;
+      
+  }
+  .stylemenu{
+    margin: auto;
+     width: 16%;
+     padding: 10px;
+  }
+  .typemenu{
+    margin: auto;
+     width: 16%;
+     padding: 10px;
+    
+  }
+  .colormenu{
+    margin: auto;
+     width: 16%;
+     padding: 10px;
+    
+  }
+  .EmployeeNumber{
+    margin: auto;
+     width: 10%;
+     padding: 10px;
+    
+  }
+
+   .PWord{
+    margin: auto;
+     width: 10%;
+     padding: 10px;
+
+  }
+
+  .searchbtn{
+    margin: auto;
+     width: 6%;
+     padding: 10px;
+     
+    
+  }
+  .container {
+    
+    position: relative;
+    border: 3px solid black;
+    background: rgba(212, 209, 209, 0.5);
+    }
+    .viewFavourites{
+        border-radius: 8px;
+        padding: 5px;
+        margin: 50px;
+    }
+    
+    h1{
+        text-align: center;
+        font-size: 60px;
+        font-family: 'Cookie', cursive;        
+    }
+    #Search{
+        height: 48px;
+        width: 150px;
+        border-radius: 4px;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 500;
+        font-size: 14px;
+        color: white;
+        background-color: #944852;
+        border: none;
+        cursor: pointer;
+    }
+    .viewFavourites{
+        height: 48px;
+        width: 150px;
+        border-radius: 4px;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 500;
+        font-size: 14px;
+        color: white;
+        background-color: #944852;
+        border: none;
+        cursor: pointer;
+    }
+    .clearFavourites{
+        height: 48px;
+        width: 150px;
+        border-radius: 4px;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 500;
+        font-size: 14px;
+        color: white;
+        background-color: #944852;
+        border: none;
+        cursor: pointer;
+    }
+    button{
+        height: 48px;
+        width: 150px;
+        border-radius: 4px;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 500;
+        font-size: 14px;
+        color: white;
+        background-color: #944852;
+        border: none;
+        cursor: pointer;
+    }
+    p{
+        font-family: 'Poppins', sans-serif; 
+    }
+    ul{
+        border-style: solid;
+        border-width: 3px;
+    }
+    a{
+        text-decoration: none;
+        color: white;
+    }
+    .price{
+        font-size: 50px;
+        font-weight: bold;
+    }
+    select{
+        font-family: 'Poppins', sans-serif; 
+    }
+    #slider-range{
+        width: 50%;
+        right: -25%;
+        
+    }
+    .logo{width: 30px;
+height: 30px;}
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-image: linear-gradient(180deg, #aadd8e, #74ce5e,#FFFFFF);
+}
+
+.topnav {
+  overflow: hidden;
+  background-color:none;
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: burlywood;
+}
+
+.topnav a.active {
+  background-color: rgb(247, 140, 0);
+  color: white;
+}
+
+.topnav .icon {
+  display: none;
+}
+
+@media screen and (max-width: 600px) {
+  .topnav a:not(:first-child) {display: none;}
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .topnav.responsive {position: relative;}
+  .topnav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+}
+.addFavourites{
+  background-color: #74ce5e;
+}
+    
+</style>
+</head>
+
+<body>
+    <nav class="topnav" id="myTopnav">
+        <a href="" >logo</a>
+        <a href="">Home</a>
+        <a href="">Search</a>
+        <a href="">Sign Up</a>
+        <a href="">Login</a>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+          <i class="fa fa-bars"></i>
+        </a>
+      </nav>
+    
+<h1> Search For Your Information.. </h1>
+
+
+
+<div class="container">
+    <div class="EmployeeNumber">
+    <p class="box">  
+        <h3> Employee Number: </h3>
+        <input type="text" id="number" readonly class="goldSliderText" >
+    </p>
+    </div>
+        <div id="slider-range"></div>
+
+ 
+ 
+    <div class="PWord">
+      <p class="box">
+        <h3> Password: </h3>
+        <input type="text" id="pword" readonly class="goldSliderText" >
+        </p>
+    </div>
+
+</div>
+   
+
+     
+   <br><br>
+   <div class="searchbtn">
+    <button id="Search">search..</button>
+   </div>
+  
+
+
+ <div id="Placeholder"></div>
+
+ 
+
+ <div id="Placeholder2"></div>
+
+<script>
+
+var data = { 
+  "data": [
+  {
+            "Id":"140038",
+            "Name":"Sharanya Serasinghe",
+            "Address":"70/7A, Hill Street, Union Garden, Dehiwala",
+            "Birthday":"2001/04/18",
+            "University":"Informatics Institute of Technlogy",
+  },
+
+		{
+            "Id":"140039",
+            "Name":"Gayani Chandraguptha",
+            "Address":"20A, Stanley Thilakarathne Road, Nugegoda",
+            "Birthday":"1999/12/14",
+            "University":"Sri Lanka Institute of Information Technology",
+        },
+
+        {   
+            "Id":"34855",
+            "Name":"Savindi Welikadaarachchi",
+            "Address":"50/2, Negombo Road, Negambo",
+            "Birthday":"1999/07/14",
+            "University":"Sri Lanka Institute of Information Technology",
+        },
+
+        {   
+            "Id":"34852",
+            "Name":"Amali Samarakoon",
+            "Address":"50/2, Negombo Road, Negambo",
+            "Birthday":"1997/09/14",
+            "University":"Sri Jayawardhanapura University",
+        },
+
+        {   
+            "Id":"34853",
+            "Name":"Ishara Liyanage",
+            "Address":"101/2, Welewatta Road, Matara",
+            "Birthday":"1997/02/17",
+            "University":"Sri Jayawardhanapura University",
+        },
+		
+        {   
+            "Id":"34859",
+            "Name":"Maheeza Diltar",
+            "Address":"75/2, Kaduwela Road, Kaduwela",
+            "Birthday":"1998/12/12",
+            "University":"Sri Jayawardhanapura University",
+        },
+		
+        {   
+            "Id":"34859",
+            "Name":"Maheeza Diltar",
+            "Address":"75/2, Kaduwela Road, Kaduwela",
+            "Birthday":"1998/12/12",
+            "University":"Sri Jayawardhanapura University",        
+		},
+		
+        {   
+            "Id":"33955",
+            "Name":"Supuni Illepperuma",
+            "Address":"112/8A, Walawwaththa Road, Matara",
+            "Birthday":"1997/06/19",
+            "University":"Sri Jayawardhanapura University",
+		},
+		
+        {   
+            "Id":"150456",
+            "Name":"Nirosha Perera",
+            "Address":"65/6F, Nuwara Road, Nuwara Eliya",
+            "Birthday":"1998/04/03",
+            "University":"Horizen Campus",        
+		},
+		
+        {   
+            "Id":"150457",
+            "Name":"Imashi Gunasinghe",
+            "Address":"34/3D, Waidya Road, Malabe",
+            "Birthday":"1998/10/07",
+            "University":"Horizen Campus",        
+		},
+		
+        {
+            "Id":"15040",
+            "Name":"Charuka Kavinda",
+            "Address":"99/B, Siriwardhana Road, Kirulapana",
+            "Birthday":"1998/05/23",
+            "University":"ICBT Campus",          
+		},
+		
+        
+]}
+
+</script>
+
+</body>
+</html>
